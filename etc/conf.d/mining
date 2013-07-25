@@ -1,13 +1,14 @@
 # Config file for /etc/init.d/mining
 
-# owner of bfgminer process 
-MINING_OWNER="daktak"
+# owner of the screen 
+SCREEN_OWNER="daktak"
 
 MINING_USER="daktak.1"
 MINING_PASS="password"
 MINING_URL="http://mining.bitcoin.cz"
+PROG="bfgminer"
 
-MINING_OPTS="-dmS MINER bfgminer ${MINING_OPTS} -o ${MINING_URL} -u ${MINING_USER} -p ${MINING_PASS} --api-listen --api-network --api-allow W:192.168.1/24"
+OPTS="-dmS ${PROG} ${PROG} ${OPTS} -o ${MINING_URL} -u ${MINING_USER} -p ${MINING_PASS} --api-listen --api-network --api-allow W:192.168.1/24"
 
 # nice level
 NICELEVEL="19"

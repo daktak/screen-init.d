@@ -8,22 +8,22 @@ depend() {
 }
 
 start() {
-        ebegin "Starting bfgminer daemon"
+        ebegin "Starting ${PROG} in screen"
 	start-stop-daemon \
-	--start --user "${MINING_OWNER}" --name bfgminer \
+	--start --user "${SCREEN_OWNER}" --name ${PROG} \
 	--env HOME="${VARDIR}" --exec screen \
 	--nicelevel "${NICELEVEL}" \
 	--background \
-	-- ${MINING_OPTS}
+	-- ${OPTS}
 	eend $?
 
 }
 
 stop() {
 	#PID=`find /home/${MINING_OWNER}/.screen -name *.MINER`
-        ebegin "Stopping bfgminer daemon"
-	start-stop-daemon --stop --user "${MINING_OWNER}" \
-	--name bfgminer \
+        ebegin "Stopping ${PROG}"
+	start-stop-daemon --stop --user "${SCREEN_OWNER}" \
+	--name ${PROG} \
 	--wait 30000 \
 	--progress
 	eend $?
