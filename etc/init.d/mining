@@ -20,7 +20,7 @@ start() {
 }
 
 stop() {
-	#PID=`find /home/${SCREEN_OWNER}/.screen -name *.MINER`
+	#PID=`find /home/${SCREEN_OWNER}/.screen -name *.${PROG}`
         ebegin "Stopping ${PROG}"
 	start-stop-daemon --stop --user "${SCREEN_OWNER}" \
 	--name ${PROG} \
