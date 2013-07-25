@@ -20,7 +20,7 @@ start() {
 }
 
 stop() {
-	PID=`find /home/${MINING_OWNER}/.screen -name *.MINER`
+	#PID=`find /home/${MINING_OWNER}/.screen -name *.MINER`
         ebegin "Stopping bfgminer daemon"
 	start-stop-daemon --stop --user "${MINING_OWNER}" \
 	--name bfgminer \
