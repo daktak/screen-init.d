@@ -1,0 +1,31 @@
+#!/sbin/runscript
+# Copyright 1999-2013 Gentoo Foundation
+# Distributed under the terms of the GNU General Public License v2
+# $Header: $
+
+depend() {
+        need net
+}
+
+start() {
+        ebegin "Starting bfgminer daemon"
+	start-stop-daemon \
+	--start --user "${MINING_OWNER}" --name bfgminer \
+	--env HOME="${VARDIR}" --exec screen \
+	--nicelevel "${NICELEVEL}" \
+	--background \
+	-- ${MINING_OPTS}
+	eend $?
+
+}
+
+stop() {
+	PID=`find /home/${MINING_OWNER}/.screen -name *.MINER`
+        ebegin "Stopping bfgminer daemon"
+	start-stop-daemon --stop --user "${MINING_OWNER}" \
+	--name bfgminer \
+	--wait 30000 \
+	--progress
+	eend $?
+}
+
