@@ -7,7 +7,6 @@ MINING_USER="daktak.1"
 MINING_PASS="password"
 MINING_URL="http://mining.bitcoin.cz"
 
-# See http://www.bitcoin.org/smf/index.php?topic=1063
 MINING_OPTS="-dmS MINER bfgminer ${MINING_OPTS} -o ${MINING_URL} -u ${MINING_USER} -p ${MINING_PASS} --api-listen --api-network --api-allow W:192.168.1/24"
 
 # nice level
