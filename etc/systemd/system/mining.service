@@ -1,0 +1,11 @@
+[Unit]
+Description=Screen detached bfgminer session
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/screen -dmS bfgminer bfgminer -o http://mining.bitcoin.cz -u daktak -p pass --api-listen --api-network --api-allow W:192.168.1/24
+Type=forking
+User=daktak
+
+[Install]
+WantedBy=multi-user.target
