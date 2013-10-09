@@ -13,7 +13,6 @@ start() {
 	--start --user "${SCREEN_OWNER}" --name ${PROG} \
 	--env HOME="${VARDIR}" --exec screen \
 	--nicelevel "${NICELEVEL}" \
-	--background \
 	-- ${OPTS}
 	eend $?
 
